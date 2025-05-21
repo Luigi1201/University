@@ -1,0 +1,8 @@
+model Esercizi\3\produzione.mod;
+data Esercizi\3\produzione.dat;
+option solver cbc;
+solve;
+display profit;
+display x;
+display c_res.slack;
+display c_res;

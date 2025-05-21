@@ -1,0 +1,18 @@
+set I2=r2;
+set I1=r1;
+set I:=r1 r2;
+set J:=x1 x2 x3;
+
+param b:=
+r1 2
+r2 3;
+
+param c:=
+x1 4
+x2 2
+x3 3;
+param a:
+
+	x1 x2 x3=
+r1	4 3 1
+r2 -4 3 -1;

@@ -1,0 +1,12 @@
+option solver gurobi;
+model Esercizi\12\investimento.mod;
+data Esercizi\12\investimento.dat;
+expand > Esercizi\12\investimento.lp;
+solve;
+display investimento_con_rischio_minore;
+display x;
+display vmax;
+display vmin;
+display v_eq;
+
+#commands Esercizi\12\investimento.run;

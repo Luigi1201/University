@@ -1,0 +1,67 @@
+/*
+min 3x1 + 4x2 -2x3
+
+soggetto a
+x1 + 2x2 -x3 >= 5
+2x1 + 4x3 = 12
+x1 + x2 + x3 <= 15
+
+x1, x2 >= 0, x3 libera
+
+
+SOLUZIONE 1:
+set I := r1 r2 r3;
+set I1 := r1;
+set I2 := r2;
+set I3 := r3;
+
+set J := x1 , x2 , x3;
+set J12 := x1,x2;
+
+param b:=
+r1 5
+r2 12
+r3 15;
+
+param c:=
+x1 3
+x2 4
+x3 -2;
+
+param a:
+	x1	x2	x3=
+r1	1	2	-1
+r2	2	0	4
+r3	1	1	1;
+
+
+SOLUZIONE 2:
+*/
+set I1 := r1;
+set I2 := r2;
+set I3 := r3;
+
+set J := x1 , x2 , x3;
+set J12 := x1,x2;
+
+param b1:=
+r1 5;
+param b2:=
+r2 12;
+param b3:=
+r3 15;
+
+param c:=
+x1 3
+x2 4
+x3 -2;
+
+param a1:
+	x1	x2	x3=
+r1	1	2	-1;
+param a2:
+	x1	x2	x3=
+r2	2	0	4;
+param a3:
+	x1	x2	x3=
+r3	1	1	1;

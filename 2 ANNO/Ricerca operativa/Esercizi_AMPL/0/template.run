@@ -1,0 +1,21 @@
+option solver cbc; #gurobi cplex
+model path\template.mod;
+data path\template.dat;
+expand > path\template.lp;
+ 
+for{ i in 1..10}{
+	solve;
+	let alfa:=i;
+	display z;
+	display x;
+	display v1;
+	display v1.slack;
+};
+
+/*
+solve;
+display z;
+display x;
+display v1;
+display v1.slack;
+*/

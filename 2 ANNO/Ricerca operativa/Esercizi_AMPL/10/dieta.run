@@ -1,0 +1,9 @@
+option solver gurobi;
+model Esercizi\10\dieta.mod;
+data Esercizi\10\dieta.dat;
+expand > Esercizi\10\dieta.lp;
+solve;
+display z;
+display x;
+
+#commands Esercizi\10\dieta.run;

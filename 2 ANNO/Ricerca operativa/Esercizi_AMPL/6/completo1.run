@@ -1,0 +1,9 @@
+option solver cbc;
+model Esercizi\6\completo1.mod;
+data Esercizi\6\completo1.dat;
+expand > Esercizi\6\completo1.lp;
+solve;
+display z;
+display x;
+
+#commands Esercizi\6\completo1.run;

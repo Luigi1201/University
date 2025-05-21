@@ -1,0 +1,8 @@
+model Esercizi/1/model.mod;
+data Esercizi/1/model.dat;
+option solver cbc;
+solve;
+display x;
+display x[x1];
+display v[r1];
+display z;

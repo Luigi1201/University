@@ -1,0 +1,14 @@
+option solver cplex;
+model Esercizi\13\lanificio.mod;
+data Esercizi\13\lanificio.dat;
+expand > Esercizi\13\lanificio.lp;
+
+for{i in 100..110}{
+	let alfa:=i;
+	solve;
+	display z;
+	display x;
+}
+
+
+#commands Esercizi\13\lanificio.run;

@@ -1,0 +1,21 @@
+option solver gurobi; #cbc
+
+model Esercizi\11\completoDefinitivo.mod;
+data Esercizi\11\completoDefinitivo.dat;
+
+expand > Esercizi\11\completoDefinitivo.lp;
+
+for{i in 1..10}{
+	solve;
+	let alfa := i;
+	display z;
+	display x;
+	display v1;
+	display v2;
+	display v3;
+	display v1.slack;
+	display v2.slack;
+	display v3.slack;
+}
+
+#commands Esercizi\11\completoDefinitivo.run;

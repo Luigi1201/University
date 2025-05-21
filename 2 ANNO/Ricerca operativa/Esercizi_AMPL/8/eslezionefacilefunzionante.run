@@ -1,0 +1,9 @@
+option solver cbc;
+model Esercizi\8\eslezionefacilefunzionante.mod;
+data Esercizi\8\eslezionefacilefunzionante.dat;
+expand > Esercizi\8\eslezionefacilefunzionante.lp;
+solve;
+display z;
+display x;
+
+#commands Esercizi\8\eslezionefacilefunzionante.run;

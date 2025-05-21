@@ -1,0 +1,19 @@
+option solver gurobi;
+model Esercizi\9\eslezionemedio.mod; 
+data Esercizi\9\eslezionemedio.dat; 
+expand > Esercizi\9\eslezionemedio.lp;
+
+for{i in 0..20}{
+	solve;
+	let alfa := i;
+	display z;
+	display x;
+	display vr1;
+	display vr2;
+	display vx;
+}
+
+
+#commands Esercizi\9\eslezionemedio.run;
+
+#non esistono soluzioni a questo problema

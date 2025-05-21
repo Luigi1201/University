@@ -1,0 +1,12 @@
+option solver cplex;
+model Esercizi\15\es15.mod;
+data Esercizi\15\es15.dat;
+expand > Esercizi\15\es15.lp;
+solve;
+display z;
+display x;
+display v1;
+display v2;
+display v3;
+
+#commands Esercizi\15\es15.run;

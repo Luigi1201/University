@@ -1,0 +1,9 @@
+option solver cplex; #gurobi cbc
+model Esercizi\14\eserciziodapdf.mod;
+data Esercizi\14\eserciziodapdf.dat;
+expand > Esercizi\14\eserciziodapdf.lp;
+solve;
+display z;
+display x;
+
+#commands Esercizi\14\eserciziodapdf.run;

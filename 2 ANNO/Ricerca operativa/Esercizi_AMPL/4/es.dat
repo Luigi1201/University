@@ -1,0 +1,23 @@
+set J1 := x1;
+set J2 := x2;
+set J := x1 x2;
+set I1 := r1;
+set I2 := r2;
+
+param b1:=
+r1 4;
+
+param b2:=
+r2 18;
+
+param c:=
+x1 -3
+x2 +4;
+
+param a1:
+	x1 x2=
+r1  1  1;
+
+param a2:
+	x1 x2=
+r2  2  3;

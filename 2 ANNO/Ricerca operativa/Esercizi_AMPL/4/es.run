@@ -1,0 +1,9 @@
+option solver gurobi;
+model Esercizi\4\es.mod;
+data Esercizi\4\es.dat;
+expand > Esercizi\4\es.lp;
+solve;
+display z;
+display x;
+
+#commands Esercizi\4\es.run;

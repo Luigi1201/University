@@ -1,0 +1,10 @@
+option solver gurobi;
+model Esercizi\7\completo2.mod;
+data Esercizi\7\completo2.dat;
+expand > Esercizi\7\completo2.lp;
+solve;
+display z;
+display x;
+# commands Esercizi\7\completo2.run;
+
+#soluzioneIllimitata (verificata e corretta)

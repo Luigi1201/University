@@ -1,0 +1,42 @@
+/*
+minimize 0.3x1 + 0.2x2
+		x1+x2 <= 3		r1
+		x1+x2 <= 1.8;	r2
+		x1 >= 0.5;		r3
+		x2 >= 0.5;		r4
+		x1 <= 1.5;		r5
+		x2 <= 1.5;		r6
+*/
+
+set BUDGET_MAX := r1 r5 r6;
+set BUDGET_MIN := r3 r4;
+set BUDGET_EQ := r2;
+set INVESTIMENTO := x1 x2;
+
+param b1:=
+r1 3
+r5 1.5
+r6 1.5;
+param b2:=
+r3 0.5
+r4 0.5;
+param b3:=
+r2 1.8;
+
+param c:=
+x1 0.3
+x2 0.2;
+
+param a1:
+	x1	x2=
+r1	1	1
+r5	1	0
+r6	0	1;
+param a2:
+	x1	x2=
+r3	1	0
+r4	0	1;
+param a3:
+	x1	x2=
+r2	1	1;
+	

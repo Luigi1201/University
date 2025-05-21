@@ -1,0 +1,15 @@
+option solver cplex;
+model Esercizi\16\es16.mod;
+data Esercizi\16\es16.dat;
+expand > Esercizi\16\es16.lp;
+
+for{i in 1..10}{
+	let alfa:=i;
+	solve;
+	display z;
+	display x;
+}
+
+
+
+#commands Esercizi\16\es16.run;

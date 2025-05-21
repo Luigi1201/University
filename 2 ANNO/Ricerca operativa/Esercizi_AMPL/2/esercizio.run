@@ -1,0 +1,20 @@
+option solver cbc;
+model Esercizi\2\esercizio.mod;
+data Esercizi\2\esercizio.dat;
+ 
+for{ i in 1..10}{
+	solve;
+	let alfa:=i;
+	display z;
+	display x;
+	display v1;
+	display v1.slack;
+};
+
+/*
+solve;
+display z;
+display x;
+display v1;
+display v1.slack;
+*/
