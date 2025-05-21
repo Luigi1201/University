@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //map():
+        /*Applica una funzione a ogni elemento di un array e restituisce un nuovo array con i risultati.
+        È utile quando vuoi trasformare ogni elemento di un array.*/
+        const numerii = [1, 2, 3, 4];
+        const raddoppiati = numerii.map(num => num * 2);
+        console.log(raddoppiati);  // Output: [2, 4, 6, 8]
+
+
+        //filter():
+        /*Filtra gli elementi di un array in base a una condizione specificata, restituendo un nuovo array con gli elementi che soddisfano la condizione.
+        È utile per selezionare solo determinati elementi.*/
+        const numeriii = [1, 2, 3, 4, 5, 6];
+        const pari = numeriii.filter(num => num % 2 === 0);
+        console.log(pari);  // Output: [2, 4, 6]
+        
+        
+        //reduce():
+        /*Riduce un array a un singolo valore, applicando una funzione a un accumulatore e a ciascun elemento dell'array.
+        È utile per calcoli cumulativi come somma, prodotto o concatenazione.*/
+        const numeri = [1, 2, 3, 4];
+        const somma = numeri.reduce((accumulatore, valoreCorrente) => accumulatore + valoreCorrente, 0);
+        console.log(somma);  // Output: 10
+        
+
+        //ternary operator
+        /*È una versione abbreviata dell'if...else che può rendere il codice più conciso.*/
+        let x = 4;
+        let risultato = x > 5 ? 'x è maggiore di 5' : 'x è minore o uguale a 5';
+        console.log(risultato);
+    </script>
+</body>
+</html>

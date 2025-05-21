@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*  JSON.parse(elem)
+        JSON.parse è un metodo che prende una stringa in formato JSON e la trasforma in un oggetto JavaScript. 
+        JSON.parse è usato quando ricevi dati JSON (di solito da una risposta HTTP o da un file) e vuoi convertirli in oggetti JavaScript per poterci lavorare.
+        esempio:*/
+        const jsonString = '{"name": "Luigi", "age": 25, "team": "Lazio"}';
+        const obj = JSON.parse(jsonString);  // Trasforma la stringa JSON in oggetto
+        console.log(obj.name);  // Output: "Luigi"
+        console.log(obj.age);   // Output: 25
+
+        /*  JSON.stringify(obj)
+        Mentre JSON.parse trasforma una stringa JSON in un oggetto, JSON.stringify 
+        fa l'operazione inversa: trasforma un oggetto JavaScript in una stringa JSON. 
+        JSON.stringify è usato quando hai un oggetto JavaScript e vuoi convertirlo in una stringa JSON per inviarlo a un server o salvarlo in un file.
+        esempio:*/
+        const objj = { name: "Luigi", age: 25, team: "Lazio" };
+        const jsonStringg = JSON.stringify(objj);  // Converte l'oggetto in stringa JSON
+        console.log(jsonStringg);  // Output: '{"name":"Luigi","age":25,"team":"Lazio"}'
+
+        /*  JSON.parse vs .json() di fetch
+            -   JSON.parse(): è una funzione manuale che usi per convertire una stringa JSON che hai già in mano in un oggetto JavaScript.
+            -   .json() di fetch: è un metodo che ottieni dall'oggetto Response (la risposta della richiesta fetch) che legge il corpo della 
+                risposta e lo converte automaticamente in JSON. Quindi non hai bisogno di usare JSON.parse con fetch poiché .json() fa questo lavoro per te.
+        esempio di .json():*/
+        fetch('https://api.example.com/data')
+        .then(response => response.json())  // .json() trasforma il corpo della risposta in oggetto
+        .then(data => console.log(data))
+        .catch(error => console.error('Errore:', error));
+
+    </script>
+</body>
+</html>

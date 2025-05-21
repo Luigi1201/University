@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esame</title>
+    <link rel="stylesheet" type="text/css" href="stile.css">
+</head>
+<body>
+    <div class="container">
+        <div id="modale"></div>
+        <header>
+            <h1>Titolo</h1>
+            <menu>
+                <a href="">Home</a>
+                <a href="">About</a>
+                <a href="">Contatti</a>
+            </menu>
+            <div id="hamburger">
+            <div id="hamburger"></div>
+            <div id="hamburger"></div>
+                
+            </div>
+        </header>
+        <main>
+            <h2>Articoli</h2>
+            <div id="divArticoli"></div>
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+    <script>
+        const divArticoli = document.getElementById("divArticoli")
+        fetch("http://127.0.0.1:3000/articoli")
+        .then(res=>res.json())
+        .then(data=>{
+            data.forEach(singoloArticolo=>{
+                const divBoxArticolo = document.createElement("div")
+                divBoxArticolo.setAttribute("class","boxArticolo")
+                divBoxArticolo.style.display="block"
+             
+                divBoxArticolo.innerHTML = `${singoloArticolo.titolo}`+"<br>"+`${singoloArticolo.autore}`+"<br>"+`${singoloArticolo.contenuto}`
+                
+                const btnMostraDettagli = document.createElement("button")
+                btnMostraDettagli.setAttribute("class","btnMostraDettagli")
+                btnMostraDettagli.setAttribute("id",singoloArticolo.id)
+                btnMostraDettagli.style.display="block"
+                btnMostraDettagli.appendChild(document.createTextNode("Mostra dettagli"))
+                
+                divBoxArticolo.appendChild(btnMostraDettagli)
+                divArticoli.appendChild(divBoxArticolo)
+            })
+            const btnMostraAutori = document.createElement("button")
+            btnMostraAutori.setAttribute("id","btnMostraAutori")
+            const testo = document.createTextNode("Mostra Autori")
+            btnMostraAutori.appendChild(testo)
+            divArticoli.appendChild(btnMostraAutori)
+
+
+            //ES5
+            btnMostraAutori.addEventListener("click",()=>{
+                const modale = document.getElementById("modale")
+                modale.style.display="block"
+            })
+        })
+
+
+        
+    </script>
+</body>
+</html>

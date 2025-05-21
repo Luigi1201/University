@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*  FETCH
+        fetch() è una funzione nativa di JavaScript che ti permette di fare richieste HTTP. 
+        Restituisce una promise che, una volta risolta, contiene la risposta alla richiesta.
+        esempio:*/
+        fetch('https://jsonplaceholder.typicode.com/users')
+        .then(res => res.json())  // Converte la risposta in formato JSON
+        .then(data => console.log(data))     // Fa qualcosa con i dati
+        .catch(error => console.error('Errore:', error));  // Gestisce eventuali errori
+
+        /*  PROMISE
+        Una promise può essere in tre stati:
+        -   Pending (in attesa): quando l'operazione non è ancora completata.
+        -   Fulfilled (risolta): quando l'operazione ha avuto successo.
+        -   Rejected (rifiutata): quando l'operazione è fallita.
+        Con fetch(), ottieni una promise che si risolve quando il server risponde alla richiesta.
+        Puoi gestire il successo o il fallimento con i metodi .then() (successo) e .catch() (fallimento).
+        */
+
+        /*  ASYNC & AWAIT
+        -   async permette di definire una funzione asincrona. 
+        -   Quando usi await dentro una funzione async, il codice aspetta che la promise sia risolta (o rifiutata) 
+            senza bloccare il thread principale.
+        esempio:*/
+        async function getData() {
+            try {
+              const res = await fetch('https://jsonplaceholder.typicode.com/users');
+              const data = await res.json();  // .json() per convertire in formato JSON
+              console.log(data);  // Usa i dati
+            } catch (error) {
+              console.error('Errore:', error);  // Gestisce gli errori
+            }
+          }
+          getData();  // Esegue la funzione asincrona
+
+        /*  FETCH CON IMPOSTAZIONI AVANZATE
+        Oltre alle richieste GET, puoi fare richieste POST, aggiungere intestazioni personalizzate e inviare dati al server. 
+        L'oggetto fetch accetta un secondo parametro con opzioni avanzate.
+        esempio:*/
+        async function postData(url = '', data = {}) {
+            const response = await fetch(url, {
+              method: 'POST',               // Specifica il metodo
+              headers: {
+                'Content-Type': 'application/json'  // Imposta l'header
+              },
+              body: JSON.stringify(data)    // Converte i dati in formato JSON
+            });
+            return response.json();         // Converte la risposta in JSON
+          }
+          
+          postData('https://api.example.com/submit', { name: 'Luigi', age: 25 })
+            .then(data => console.log(data))
+            .catch(error => console.error('Errore:', error));
+    </script>
+</body>
+</html>

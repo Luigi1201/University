@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>PER FUNZIONARE ATTIVA WEB SERVER CON IN BASSO A DESTRA "GO LIVE" IN VSCODE, POI CLICCA SUL FILE HTML CON TASTO DETRO E APRI CON LIVE SERVER</p> 
+    <script>
+    //{CON FATCH}
+        let classeScuolaElementareFetch;
+        let urlFileJSON = './classeScuolaElementare.json';
+        fetch(urlFileJSON)
+        .then(response=>response.json())
+        .then(json=>{
+            classeScuolaElementareFetch = json;
+            console.log("fetch: ",classeScuolaElementareFetch);
+        })
+
+    //"{IN VECCHIO STILE SENZA FATCH}"
+        //-----------------------------
+        //INIZIO MATERIALE VIDEO EDOARDO MIDALI:
+        let classeScuolaElementare;
+        let requestURL='./classeScuolaElementare.json';
+        let request = new XMLHttpRequest();
+        request.open('GET', requestURL);
+        request.responseType = 'json';
+        request.onload = function(){
+            classeScuolaElementare = request.response;
+            console.log(classeScuolaElementare);
+        }
+        request.send();
+        //FINE MATERIALE EDOARDO MIDALI
+        //----------------------------
+
+        //------------------------------------------------------------
+        //DA QUI FINO ALLA FINE MATERIALE DA APPUNTI PROFESSORE//
+        //INIZIO Esempio XMLHttpRequest (sync)
+        var url = "./classeScuolaElementare.json";
+        var richiesta = new XMLHttpRequest(); 
+        richiesta.open("GET", url,false); //terzo parametro dice se la richiesta deve essere asincrona
+        richiesta.send(null);
+        console.log(richiesta.responseText);
+        //FINE
+
+        //INIZIO Esempio XMLHttpRequest (async)
+        var richiestaAsync= new XMLHttpRequest(); 
+        richiestaAsync.onreadystatechange = function() {
+            if (richiestaAsync.readyState==4 &&     //stato 4 = request finita e response pronto
+                richiestaAsync.status==200) {
+                console.log(this.responseText);
+            }
+        };
+        richiestaAsync.open("GET",url , true);
+        //FINE
+
+        //JSON IN JAVASCRIPT SLIDE PROFESSORE
+        function Get(yourUrl){
+            var Httpreq = new XMLHttpRequest();
+            Httpreq.open("GET",yourUrl,false);  //terzo parametro dice se la richiesta deve essere asincrona
+            Httpreq.send(null); //send() invia la richiesta
+            return Httpreq.responseText;    //responseText è la risposta
+        }
+        var json_obj=JSON.parse(Get(url));
+        console.log("Autore: ",json_obj.author_name);
+    </script>
+</body>
+</html>

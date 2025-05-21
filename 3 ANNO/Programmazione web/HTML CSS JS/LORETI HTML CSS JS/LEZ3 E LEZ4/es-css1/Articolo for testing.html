@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>HTML Page for Testing CSS</title>
+
+    <style>
+        main{
+            width: 600px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+  <main> 
+<h1 >Web Typography</h1>
+<div>Nº 14. of <a href='/html-and-css'>HTML &amp; CSS Is Hard</a></div>
+<div>A friendly tutorial about web fonts and basic typographic principles</div>
+
+<p>“Web typography” refers to the appearance of all the text on
+your website. It includes <a
+href='/html-and-css/hello-css#more-text-styles'>basic CSS text properties</a>
+like what font to use and whether it should be italic or not, but typography
+is much more than that. It’s about the space between and around letters,
+words, and lines. It’s the size of different runs of text in relation to
+one another, and the history behind each font family.</p>
+
+<p>A lot of your typography decisions will come from a designer. The only
+problem is that typography is an invisible art. To actually understand what
+your designer is asking for, you need to be able to <em>see</em> typography the
+same way they do.</p>
+
+<p>This chapter isn’t just about the mechanics of adding web fonts to
+your site or the CSS properties to move your text around. We’ll also
+explain how to properly leverage all these tools to make beautiful,
+professional websites. By the end of the chapter, you should not only
+know what your designer is talking about when they say something like,
+“Can we increase the leading of that paragraph?”, but also
+understand <em>why</em> they want you to increase it.</p>
+
+<p>You may forget the specific CSS properties, but the typographic concepts
+we’re going to cover will stay with you for the rest of your life because
+they aren’t arbitrary rules&mdash;they’re grounded in function.
+They make your content more readable and help you communicate your message more
+effectively.</p>
+
+
+
+<h2><span>A Brief History of Web Fonts</span></h2>
+
+<p>We’re going to start this chapter by learning how to display your web
+pages in a custom font because that’s the most exciting aspect of modern
+web typography. However, web fonts have changed a lot over the last few years,
+so before we can start building out our example, we need a little primer on the
+various font formats floating around the Internet.</p>
+
+<h3>Web Safe Fonts</h3>
+
+<p>Long, long ago, web developers only had “web safe fonts” at
+their disposal. These were a collection of a dozen or so fonts that were
+pre-installed on most computers. There was no such thing as a custom font file
+that you could send to browsers to use on your website.</p>
+
+<p>If you <em>needed</em> a special font, your only option was to export an
+image of the text you wanted to display and include it in your web page with an
+<code>&lt;img/&gt;</code> element. This was ridiculously limiting for web
+designers and resulted in some pretty hacky situations for developers.
+Honestly, we don’t know how everybody survived through that era of HTML
+and CSS.</p>
+
+
+<h3>Custom Web Fonts</h3>
+
+<p>Around 2010, browsers began supporting custom web fonts, which was great,
+except for the fact that each browser and device required a different file
+format. Accordingly, most websites provided 4 different web font files:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>File Format</th>
+      <th>Browser/Device</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>.svg</code></td>
+      <td>Very old Safari (iOS and Desktop)</td>
+    </tr>
+    <tr>
+      <td><code>.eot</code></td>
+      <td>Internet Explorer</td>
+    </tr>
+    <tr>
+      <td><code>.ttf</code></td>
+      <td>Everything except Internet Explorer</td>
+    </tr>
+    <tr>
+      <td><code>.woff</code></td>
+      <td>Newer browsers</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This resulted in the <a target='_blank'
+  href='https://www.paulirish.com/2009/bulletproof-font-face-implementation-syntax/'>“Bulletproof
+  <code>@font-face</code> syntax”</a>, which you’ll likely
+encounter at some point in your web development career.</p>
+
+
+
+<div><h3>WOFF Fonts</h3></div>
+
+<p>Recently, the industry has standardized on the Web Open Font Format (WOFF),
+so things have gotten a little bit simpler for us. <a target='_blank'
+href='http://caniuse.com/#search=woff'>Over 90%</a> of modern browsers support
+<code>.woff</code> fonts, and support for its next evolution,
+<code>.woff2</code>, is growing. WOFF2 is similar to the original WOFF format,
+but offers a significant reduction in file size (which means better
+performance).</p>
+
+<p>Eventually, you’ll only need to support WOFF2, but right now, we
+suggest providing both WOFF and WOFF2 web fonts to get decent coverage for
+older browsers and improved performance on modern ones. Unless legacy browsers
+make up a large chunk of your target audience, <code>.ttf</code>,
+<code>.svg</code>, and <code>.eot</code> fonts are a thing of the past.</p>
+
+
+<h2 ><span>Where to Find Web Fonts</span></h2>
+
+<p>There’s a ton of places on the web where you can download both free
+and premium web fonts, but our three favorites are listed below. Again, which
+font to use is usually up to your designer (and their budget), but as a
+developer, it’s still good to know the trade-offs between these
+options.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Website</th>
+      <th>Price</th>
+      <th>Quality</th>
+      <th>Selection</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href='https://www.fontsquirrel.com/'>Font Squirrel</a></td>
+      <td>Free</td>
+      <td>Hit-or-Miss</td>
+      <td>Huge</td>
+    </tr>
+    <tr>
+      <td><a href='https://fonts.google.com/'>Google Fonts</a></td>
+      <td>Free</td>
+      <td>Good</td>
+      <td>Decent</td>
+    </tr>
+    <tr>
+      <td><a href='https://www.fontspring.com/'>Fontspring</a></td>
+      <td>Expensive</td>
+      <td>Excellent</td>
+      <td>Huge</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Note that Font Squirrel and Fontspring offer both web fonts and desktop
+fonts (<code>.otf</code> and <code>.ttf</code> files). WOFF is designed
+specifically for the needs of the modern web, while desktop fonts contain extra
+functionality useful for graphics editing programs like Adobe Illustrator. Be
+sure to download or purchase the web font version of the fonts you want to
+use&mdash;not just the desktop version.</p>
+
+
+</main>
+
+</body></html>

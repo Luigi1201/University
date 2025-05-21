@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*Alcuni degli eventi più comuni sono:
+            click: Quando l'utente clicca su un elemento.
+            submit: Quando viene inviato un modulo. Solitamente, si utilizza per eseguire controlli sui dati inseriti prima dell'invio del form.
+            mouseover: Quando il mouse passa sopra un elemento.
+            keydown: Quando l'utente preme un tasto sulla tastiera.
+            input: Quando l'utente inserisce del testo in un campo di input.
+            load: Quando la pagina o un'immagine termina di caricarsi.
+        
+        In JavaScript, puoi "ascoltare" eventi specifici su un elemento usando il metodo addEventListener(). 
+        Questo metodo associa una funzione chiamata gestore dell'evento (event handler) a un particolare evento su un elemento.
+        Sintassi: element.addEventListener(event, function, useCapture);
+                    -   event: Il tipo di evento che vuoi ascoltare (ad es. "click", "keydown", "input", ecc.).
+                    -   function: La funzione da eseguire quando l'evento si verifica (questo è il gestore dell'evento).
+        */    
+
+        //ESEMPI DEGLI ALTRI EVENTI PIU' COMUNI:
+            //CLICK
+            const bottone = document.getElementById("mioBottone"); // Seleziona il bottone
+            bottone.addEventListener("click", function() {  // Aggiungi un listener per il clic
+                alert("Hai cliccato il bottone!");
+            });
+            
+            //SUBMIT Viene attivato quando un modulo viene inviato. Solitamente, si utilizza per eseguire controlli sui dati inseriti prima dell'invio del form.
+            const form = document.getElementById("mioForm");
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();  // Previene l'invio del form
+                console.log("Form inviato");
+            });
+
+            //MOUSEOVER Viene attivato quando il puntatore del mouse passa sopra un elemento.
+            element.addEventListener("mouseover", function() {
+                console.log("Il mouse è sopra l'elemento");
+            });
+
+            //INPUT Viene attivato ogni volta che il valore di un campo di input cambia.
+            const inputField = document.getElementById("mioInput");
+            inputField.addEventListener("input", function(event) {
+                console.log("Testo inserito:", event.target.value);
+            });
+
+            //KEYDOWN E KEYUP Viene attivato quando un tasto viene premuto o rilasciato sulla tastiera.
+            document.addEventListener("keydown", function(event) {
+                console.log("Tasto premuto:", event.key);
+            });
+       
+        /*
+        Quando si verifica un evento, viene passato automaticamente un event object alla funzione gestore. 
+        Questo oggetto contiene informazioni sull'evento, come:
+            target: L'elemento che ha scatenato l'evento.
+            type: Il tipo di evento (ad es. "click", "keydown").
+            key: Il tasto premuto (utile per eventi di tastiera).
+            preventDefault(): Impedisce il comportamento predefinito dell'evento (ad esempio, il reindirizzamento di un form).
+            stopPropagation(): Ferma la propagazione dell'evento (vedremo la propagazione più avanti).
+        */
+    </script>
+
+</body>
+</html>

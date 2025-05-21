@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM HTML JS </title>
+</head>
+<body>
+
+    <h1 id="titoloMulticolor">TITOLO MULTICOLOR</h1>
+    <script>
+        "use strict";
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+              color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+          }
+
+        let titolo = document.getElementById("titoloMulticolor");
+        titolo.addEventListener('mousemove', ()=>{
+            titolo.style.color=getRandomColor();
+        })
+
+    </script>
+
+
+    <form>
+        <div>
+            <label for="inputCampoNome">Nome: </label>          <!-- in for="" deve esserci stesso valore di input id="" -->
+            <br>
+            <input id="inputCampoNome" type="text">
+        </div>
+        <div>
+            <label for="inputCampoCognome">Cognome: </label>    <!-- in for="" deve esserci stesso valore di input id="" -->
+            <br>
+            <input id="inputCampoCognome" type="text">
+        </div>
+        <div>
+            <br>
+            <input id="submit" type="submit">
+        </div>
+    </form>
+    <p></p>
+    <script>
+        "use strict";
+
+        const form = document.querySelector('form');
+        const nome = document.getElementById('inputCampoNome');
+        const cognome = document.getElementById('inputCampoCognome');
+        const paragrafo = document.querySelector('p');
+
+        form.onsubmit = function(e){
+            if(nome.value === '' || cognome.value === ''){
+                e.preventDefault();                            //per avere il controllo sul caso di default in cui avviene qualcosa che non sarebbe dovuto accadere
+                paragrafo.textContent = "Devi riempire entrambi i campi !!!";
+            }
+        }
+    </script>
+
+
+    <button id="alertOnClick">CLICCAMI PER LANCIARE UN ALERT</button>
+    <script>
+        const divAlert = document.getElementById("alertOnClick");
+        divAlert.addEventListener("click",()=>{
+            alert("Alert lanciato!");
+        });
+    </script>
+
+
+    <div id="divBallerino" style="margin-left:50%">
+        CLICCA E TROVAMI
+    </div>
+    <script>
+        let divBallerino = document.getElementById("divBallerino");
+        let randTop = parseInt(Math.random() * window.innerHeight);
+        let randLeft = parseInt(Math.random() * window.innerWidth);
+        divBallerino.addEventListener("click",()=>{
+            divBallerino.style.marginTop = randTop + "px";
+            divBallerino.style.marginLeft = randLeft + "px";
+        });
+    </script>
+
+
+    <div id="demo" style="margin-top:20%">NOTA: Ogni 30 secondi la pagina si ricarica</div>
+    <script>
+        //refresh pagina ogni 30 secondi:
+        setInterval(()=>{window.location.reload()},30000);
+        
+        //in console stampo ogni volta che passano 5 secondi
+        setInterval(
+            ()=>{
+            console.log("PASSATI 5sec")
+            }
+            ,5000);
+
+        //conto alla rovescia a schermo
+        const element = document.getElementById("demo");
+        element.innerHTML+="<br>30 secondi";
+        setInterval(function () {element.innerHTML += " -1sec "}, 1000);
+        
+        //titolo cambia colore ogni secondo:
+        setInterval(()=>{
+            titolo.style.color=getRandomColor();
+        },1000)
+    </script>
+
+</body>
+</html>
+
+<!-- 
+
+- SELEZIONARE UN ELEMENTO:
+    document.getElementById("miodiv")
+    document.getElementsByTagName("p")
+    document.getElementsByClassName("myClass")
+    document.querySelectorAll("p.warning")
+
+- INSERIRE QUALCOSA IN UN ELEMENTO SELEZIONATO:
+    document.getElementById('elemSelezionato').innerHTML='NuovoTestoInserito';">
+
+- PER ASSOCIARE UN EVENTO AD UN ELEMENTO (UTILIZZO DI addEventListener):
+    window.addEventListener("click",myFunction); 
+
+- PER MANIPOLARE UN NODO:
+    let mioDiv = document.getElementById("mioDiv");
+    mioDiv.style.backgroundColor='#fff';
+
+- PER CREARE UN NODO E METTERLO DENTRO UN ELEMENTO DELLA PAGINA:
+    var newDiv = document.createElement("div"); //crea un nodo ma non lo visualizza
+    var ourText = document.createTextNode(”Ciao!"); //stessa cosa riga precedente ma crea un nodo contenente del testo
+    
+    //per metterli in un elemento della pagina righe seguenti:
+    var ourDiv = document.getElementById(myDiv");
+    newDiv.appendChild(ourText);
+    ourDiv.appendChild(newDiv)
+
+    //altro sull'inserimento dei nodi:
+    ourDiv.insertBefore( newHeading, para ); //Inserisci il nodo “newHeading” prima del nodo“para”. Entrambi sono contenuti nel nodo genitore “ourDiv”.
+    ourDiv.replaceChild( newImg, oldImg );   //Sostituisce newImg al posto di oldImg
+    parentDiv.removeChild( removeMe );       //Rimuove il nodo removeMe dal suo genitore (parentDiv)
+
+-->
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        /*
+        In JavaScript lato server (Node.js), puoi dividere il codice in moduli e esportarli per 
+        riutilizzarli in altri file. Usi module.exports per esportare variabili o funzioni da un file.
+        */
+
+        //Esempio esportazione/importazione SINGOLO ELEMENTO
+            //esempio ESPORTAZIONE SINGOLO ELEMENTO:
+            // in file util.js
+            function somma(a, b) {
+                return a + b;
+            }
+            module.exports = somma;
+
+            //esempio IMPORTAZIONE SINGOLO ELEMENTO:
+            // in file main.js
+            const somma = require('./util.js');
+            console.log(somma(5, 10));  
+
+
+        //Esempio esportazione/importazione di PIU' ELEMENTI
+            //esempio ESPORTAZIONE DI PIU' ELEMENTI
+            // in file utils.js
+            function somma(a, b) {return a + b;}
+            function sottrazione(a, b) {return a - b;}
+            function moltiplicazione(a, b) {return a * b;}
+            module.exports = {  // Esportiamo tutte le funzioni come oggetto
+                somma,
+                sottrazione,
+                moltiplicazione
+            };
+
+            //Esempio IMPORTAZIONE DI PIU' ELEMENTI
+            // in file main.js
+            const { somma, sottrazione, moltiplicazione } = require('./utils');
+            console.log(somma(5, 3));             
+            console.log(sottrazione(5, 3));        
+            console.log(moltiplicazione(5, 3));   
+  
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //SETTIMEOUT() ESEGUE UNA FUNZIONE UNA SOLA VOLTA DOPO UN CERTO INTERVALLO DI TEMPO IN MILLISECONDI
+        setTimeout(() => {
+            console.log('Eseguito dopo 3 secondi');
+          }, 3000); // Output: (dopo 3 secondi) "Eseguito dopo 3 secondi"
+          
+        //CLEARTIMEOUT(ID) PER FERMARE IL SETTIMEOUT()
+        let timeoutId = setTimeout(() => {
+            console.log('Non verrò mai eseguito');
+          }, 5000);
+        clearTimeout(timeoutId);  // Annulla l'esecuzione
+          
+
+        //SETINTERVAL() ESEGUE UNA FUNZIONE RIPETUTAMENTE OGNI TOT MILLISECONDI + CLEARINTERVAL(ID)
+        let count = 0;
+        let intervalId = setInterval(() => {
+            console.log('Eseguito ogni 2 secondi');
+            count++;
+            if (count === 3) {
+                clearInterval(intervalId);  // Ferma il ciclo dopo 3 esecuzioni
+            }
+        }, 2000);
+
+    </script>
+</body>
+</html>

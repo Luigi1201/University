@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  
+    <div class="flex">
+        <div class="border-2 flex w-1/2 h-96">
+            <div class="color-picker bg-orange-500 w-1/4"></div>
+            <div class="color-picker bg-blue-500 w-1/4"></div>
+            <div class="color-picker bg-red-500 w-1/4"></div>
+            <div class="color-picker bg-green-500 w-1/4"></div>
+        </div>
+        <div id="preview" class="border-2 flex w-1/2 h-96 flex justify-center items-center">
+            <h1>preview</h1>
+        </div>
+    </div>
+    <script>
+        const preview = document.getElementById("preview")
+        const colorPickers = document.querySelectorAll(".color-picker")
+        colorPickers.forEach((colorPicker)=>{
+            colorPicker.addEventListener("mouseover",(e)=>{
+                console.log(e.srcElement.style.backgroundColor)
+                console.log(getComputedStyle(e.srcElement).backgroundColor)
+                preview.style.backgroundColor = getComputedStyle(e.srcElement).backgroundColor
+            })
+        })
+    </script>
+</body>
+</html>

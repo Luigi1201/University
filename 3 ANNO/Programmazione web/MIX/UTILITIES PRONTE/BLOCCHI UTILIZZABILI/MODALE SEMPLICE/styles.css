@@ -1,0 +1,27 @@
+/* Stile di base per il body */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.modal {
+    display: none; /* Nascosto inizialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo trasparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.close {
+    cursor: pointer;
+    color: red;
+}

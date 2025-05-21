@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esame</title>
+    <link rel="stylesheet" type="text/css" href="stile.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Contatore - Esame</h1>
+            <nav>
+                <a href="">Home</a>
+                <a href="">About</a>
+                <a href="">Contact</a>
+            </nav>
+            <div id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+        </header>
+        <main>
+            <h3>Contatore</h3>
+            <div id="valoreContatore"></div>
+            <div class="griglia">
+                <div class="riga1">
+                    <button id="btnDiminuisci">Diminuisci</button>
+                    <button id="btnAumenta">Aumenta</button>
+                </div>
+                <div class="riga2">
+                    <button id="btnCambiaColori">Cambia Colori</button>
+                </div>
+            </div>
+        </main>
+        <footer>
+            @2024 Contatore Esame
+        </footer>
+    </div>
+    <script>
+        function func(){
+            fetch("http://localhost:3000/counter")
+            .then((res)=>res.json())
+            .then(data=>{
+                const contatoreDinamico = document.getElementById("valoreContatore")
+                contatoreDinamico.textContent = data.counter
+            })
+        }
+        func()
+
+        const btnDim = document.getElementById("btnDiminuisci");
+        btnDim.addEventListener("click",()=>{
+            fetch('/decrease', {method: 'POST'})
+            .then(res=>res.json())
+            .then(data=>{
+                const contatoreDinamico = document.getElementById("valoreContatore")
+                contatoreDinamico.textContent = data.counter
+            })
+        })
+
+        const btnAum = document.getElementById("btnAumenta");
+        btnAum.addEventListener("click",()=>{
+            fetch('/increase', {method: 'POST'})
+            .then(res=>res.json())
+            .then(data=>{
+                const contatoreDinamico = document.getElementById("valoreContatore")
+                contatoreDinamico.textContent = data.counter
+            })
+        })
+
+        const btnCambiaColori = document.getElementById("btnCambiaColori");
+        btnCambiaColori.addEventListener("click",()=>{
+            fetch("http://localhost:3000/colors")
+            .then(res=>res.json())
+            .then(data=>{
+                const header = document.querySelector("header")
+                const footer = document.querySelector("footer")
+                
+                header.style.backgroundColor = data.background
+                footer.style.backgroundColor = data.background
+                
+                header.style.color = data.text
+                footer.style.color = data.text
+            })
+        })
+        
+    </script>
+</body>
+</html>

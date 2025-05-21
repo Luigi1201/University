@@ -1,0 +1,34 @@
+{
+    "nomeClasse": "4A",
+    "scuola": "Scuola elementare Velletri",
+    "insegnanti": [
+        {
+            "nome": "Anna",
+            "cognome": "Blu",
+            "materieInsegnate": ["Storia", "Italiano", "Geografia"]
+        },
+        {
+            "nome": "Ludovica",
+            "cognome": "Rossi",
+            "materieInsegnate": ["Matematica", "Geometria", "Scienze"]
+        }
+    ],
+    "alunni": [
+        {
+            "nome": "Marco",
+            "cognome": "Querty"
+        },
+        {
+            "nome": "Leonardo",
+            "cognome": "Verdi"
+        },
+        {
+            "nome": "Maria",
+            "cognome": "Gialli"
+        }
+    ],
+    "orari": {
+        "mattina": ["storia","matematica"],
+        "pomeriggio": ["italiano", "geografia"]
+    }
+}

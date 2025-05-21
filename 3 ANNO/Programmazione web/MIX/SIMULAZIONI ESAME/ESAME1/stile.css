@@ -1,0 +1,35 @@
+.contenitore{
+    border: 1px solid green;
+    margin:auto;
+    padding:auto;
+}
+
+ul {
+    width: 100%;
+    display: flex;
+    list-style-type:none;
+    flex-wrap:wrap;
+}
+
+li {
+    list-style: none;
+    background-color: green;
+    margin:10px
+}
+
+p{
+    text-align: center
+}
+
+@media all and (max-width:800px){
+    .contenitore{
+        width: 400px;
+    }
+}
+
+@media all and (min-width:801px){
+    .contenitore{
+        width: 700px;
+    }
+    
+}

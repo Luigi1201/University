@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //hello() con async ritorna una promise
+        async function hello(){
+            return "hello";
+        };
+
+        //modo per prendere risultato promise: (tramite then)
+        hello().then((value)=>{ //value è il ritorno di "hello();"
+            console.log(value);
+        });
+
+        //oppure tramite await che si usa quando aspettiamo risultato di una promise:
+        async function hello(){
+            return greeting = await Promise.resolve('hello'); //greeting = valore che stiamo aspettando
+        }
+        hello().then(console.log);
+
+        //----------------------------------------------------
+
+        async function myFetch(){
+            let response = await fetch('coffee.jpg');
+            let myBlob = await response.blob();
+
+            let objectURL = URL.createObjectURL(myBlob);
+            let image = document.createElement('img');
+            image.src = objectURL;
+            document.body.appendChild(image);
+        }
+        myFetch().catch(e=>{
+            console.log("C'è un errore con operazione fetch: "+e.message);
+        }); //puoi anche fare semplice try catch invece di questa soluzione
+
+
+    </script>
+</body>
+</html>

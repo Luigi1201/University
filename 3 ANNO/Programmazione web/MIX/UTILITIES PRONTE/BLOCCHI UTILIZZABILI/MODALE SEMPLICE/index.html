@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modale Semplice</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <!-- Pulsante per aprire il modale -->
+    <button id="openModal">Apri Modale</button>
+
+    <!-- Modale -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">X</span>
+            <p>Questo è un modale semplice.</p>
+        </div>
+    </div>
+
+    <script>
+        // Seleziona gli elementi
+        var modal = document.getElementById('modal');           //div modale
+        var openModal = document.getElementById('openModal');   //bottone apertura
+        var closeModal = document.querySelector('.close');      //span chiusura
+
+        // Mostra il modale al clic del pulsante
+        openModal.onclick = function() {
+            modal.style.display = 'flex';
+        }
+
+        // Nasconde il modale al clic della "X"
+        closeModal.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        // Chiude il modale cliccando fuori dal contenuto (div modal prende tutta la parte restante dello schermo che non è modal-content)
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+
+</body>
+</html>

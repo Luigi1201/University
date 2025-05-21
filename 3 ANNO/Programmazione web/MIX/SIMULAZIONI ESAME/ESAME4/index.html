@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esame</title>
+    <link rel="stylesheet" type="text/css" href="stile.css">
+</head>
+<body>
+   
+    <div id="contenitore">
+        <header>
+            <h1>Titolo</h1>
+            <div id="headerFlex">
+                <menu>
+                    <a id="link" href="">Home</a>
+                    <a id="link" href="">About</a>
+                    <a id="link" href="">Contatti</a>
+                </menu>
+                <div id="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <ul id="colonnaSinistra">
+                <!--ELENCO ELEMENTI PRESI DA /persone-->
+            </ul>
+            <div id="colonnaDestra">
+                <h2>Titolo</h2>
+                <p>Paragrafo</p>
+                <button id="btn">Aggiorna Colori</button>
+            </div>
+        </main>
+        <footer></footer>
+    </div>
+
+    
+    <script>
+        const ul = document.getElementById("colonnaSinistra")
+        fetch("http://127.0.0.1:3000/persone")
+        .then(res=>res.json())
+        .then(data=>{
+            data.forEach(persona=>{
+                //ES4
+                const li = document.createElement("li")
+                console.log(persona)
+                li.innerHTML = `${persona.nome} ${persona.cognome}`
+                li.setAttribute("id",persona.id)
+                ul.appendChild(li)
+            })
+        })
+        
+        const btn = document.getElementById("btn")
+        const body = document.querySelector("body")
+        const link = document.getElementById("link")
+        btn.addEventListener("click", function() {  
+            body.style.backgroundColor = "#00796b"
+            link.style.color = "#313131"
+        });
+
+        fetch("http://127.0.0.1:3000/persone")
+        .then(res=>res.json())
+        .then(data=>{
+            data.forEach(persona=>{
+                //ES6
+                const li = document.getElementById(persona.id)
+                li.addEventListener("click",()=>{
+                    alert(`Nome:${persona.nome} Cognome:${persona.cognome} Eta:${persona.eta}`)
+                })
+            })
+        })
+
+    </script>
+
+</body>
+</html>

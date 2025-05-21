@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Deck{
+            constructor(){
+                this.carte = [1,2,3,4,5,6,7,8,9,10,"fante","donna","re"]
+                console.log("genero un nuovo mazzo", this.carte)
+            }
+            
+            mischia(){
+                this.carte.sort((a,b)=>{
+                    return 0.5-Math.random()
+                })
+                console.log("mazzo mischiato",this.carte)
+            }
+            
+            pesca(){
+                //commento per pescaggio carta da sotto, codice invece per pescaggio carta da sopra
+                //let cartaPescata=this.carte.shift()
+                //console.log("mazzo dopo la pescata",this.carte,"carta pescata:",cartaPescata)
+                let cartaPescata=this.carte.pop()
+                console.log("carta pescata:",cartaPescata,"mazzo dopo la pescata",this.carte)
+             }
+            
+            mettiSotto(carta){
+                //this.carta.push(carta) mette carta pescata alla fine delle carte
+                this.carte.unshift(carta)   //mette carta pescata come prima carta
+                this.carte.length-=1
+                console.log("mazzo dopo metti sotto",this.carte)
+            }
+
+        }
+
+        const deck = new Deck();
+        deck.mischia()
+        deck.pesca()
+    
+    </script>
+</body>
+</html>

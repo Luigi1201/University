@@ -1,0 +1,56 @@
+p em{
+    color:red;
+    /* SELETTORI PER DISCENDENTI 
+     Questo selettore applicherà lo stile a tutti gli elementi <em> che si trovano 
+     all'interno di un elemento <p>, anche se non sono figli diretti.
+    */
+}
+
+p > em {
+    color: red;
+    /*SELETTORI PER FIGLI
+    Questo selettore applicherà lo stile solo agli elementi <em> che sono 
+    figli diretti di <p>, ignorando quelli più profondi nella gerarchia.
+    */
+} 
+
+
+div + p {
+    color: red;
+    /*SELETTORI PER FRATELLO IMMEDIATAMENTE SUCCESSIVO
+    Questo selettore applicherà lo stile solo al primo <p> che segue immediatamente un <div>.
+    */
+} 
+
+div ~ p {
+    color: red;
+    /*SELETTORI PER TUTTI I FRATELLI SUCCESSIVI
+    Questo selettore applicherà lo stile a tutti gli elementi <p> che si trovano 
+    dopo un <div> nello stesso livello, indipendentemente dal fatto che siano 
+    immediatamente successivi o meno.
+    */
+} 
+   
+
+/*	
+    SELETTORI COMPOSTI:
+    1) SELETTORI PER DISCENDENTI (tramite spazio)
+        Sintassi: A B
+        Seleziona tutti gli elementi B che sono discendenti di A, indipendentemente dal livello di profondità nella gerarchia.
+        Esempio: p em {color: red;} Questo selettore applicherà lo stile a tutti gli elementi <em> che si trovano all'interno di un elemento <p>, anche se non sono figli diretti.
+    
+    2)	SELETTORI PER FIGLI (tramite >)
+        Sintassi: A > B
+        Seleziona tutti gli elementi B che sono figli diretti di A, escludendo quelli che sono più profondi nella gerarchia (come nipoti o pronipoti).
+        Esempio: p > em {color: red;} Questo selettore applicherà lo stile solo agli elementi <em> che sono figli diretti di <p>, ignorando quelli più profondi nella gerarchia.
+    
+    3)	SELETTORI PER FRATELLO IMMEDIATAMENTE SUCCESSIVO (tramite +)
+        Sintassi: A + B
+        Seleziona l'elemento B che è il fratello immediatamente successivo di A, cioè l'elemento che compare subito dopo A nello stesso livello gerarchico.
+        Esempio: div + p {color: red;} Questo selettore applicherà lo stile solo al primo <p> che segue immediatamente un <div>.
+    
+    4)	SELETTORI PER TUTTI I FRATELLI SUCCESSIVI (tramite ~)
+        Sintassi: A ~ B
+        Seleziona tutti gli elementi B che sono fratelli successivi di A, quindi non solo il primo fratello immediato, ma anche quelli successivi nello stesso livello gerarchico.
+        Esempio: div ~ p {color: red;} Questo selettore applicherà lo stile a tutti gli elementi <p> che si trovano dopo un <div> nello stesso livello, indipendentemente dal fatto che siano immediatamente successivi o meno.
+*/  

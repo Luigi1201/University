@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //FOR...IN loop usato per iterare sugli oggetti (o sulle proprietà di un oggetto)
+        const obj = { a: 1, b: 2, c: 3 };
+        for (let key in obj) {
+            console.log(key, obj[key]); // Output: a 1, b 2, c 3
+        }
+        
+        //FOR...OF loop usato per iterare su arrau o su strutture iterabili come stringhe
+        const array = [1, 2, 3];
+        for (let value of array) {
+            console.log(value);        // Output: 1 2 3
+        }
+
+        //.FOREACH() SUGLI ARRAY
+        const arrayy = [1, 2, 3, 4, 5];
+        arrayy.forEach((element) => {   //utilizzo callBack
+            console.log(element);       // Output: 1 2 3 4 5
+        });
+
+        //Callback function: La funzione che passi a forEach() viene eseguita per ogni elemento dell'array.
+        //Può prendere tre argomenti: l'elemento attuale, l'indice dell'elemento e l'array stesso.
+        array.forEach((element, index, array) => {
+            console.log('Elemento:', element, 'Indice:', index, 'Array:', array);
+          });
+    </script>
+</body>
+</html>

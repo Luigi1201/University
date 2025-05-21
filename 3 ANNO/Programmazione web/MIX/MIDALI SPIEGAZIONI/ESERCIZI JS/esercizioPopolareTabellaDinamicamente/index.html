@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="tabella">
+        <tr>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>COGNOME</th>
+            <th>EMAIL</th>
+            <th>CODICE FISCALE</th>
+            <th>INDIRIZZO</th>
+        </tr>
+    </th>
+    </table>
+    <script>
+        const data = [
+            {
+                id: 1,
+                nome: "luca",
+                cognome: "rossi",
+                email: "luca.rossi@gmmaaaaailit",
+                codiceFiscale: "kdrwde32f93x109m",
+                indirizzo: "via torino"
+            },
+            {
+                id: 2,
+                nome: "marco",
+                cognome: "verdi",
+                email: "marco.verdi@gmmaaaaailit",
+                codiceFiscale: "gbbfrw54f32x176p",
+                indirizzo: "via piacenza"
+            }
+        ]
+
+        const tabella = document.getElementById("tabella");
+        data.forEach((oggetto)=>{
+            const riga = document.createElement("tr");
+            tabella.appendChild(riga);
+            Object.keys (oggetto). forEach(proprieta => {
+                const colonna = document.createElement("td");
+                const testo = document.createTextNode(oggetto[proprieta]);
+                colonna.appendChild(testo);
+                riga.appendChild(colonna);
+            })
+        });
+
+        /* stessa cosa di questo ma utilizzato Object.keys per scorrere le proprietà:
+        const tabella = document.getElementById("tabella")
+        data.forEach((oggetto)=>{
+            const riga = document.createElement("tr");
+            tabella.appendChild(riga);
+
+            for(proprieta in oggetto){
+                console.log(proprieta)
+                const colonna = document.createElement("td");
+                riga.appendChild(colonna);
+                const testo = document.createTextNode(oggetto[proprieta]);
+                colonna.appendChild(testo);
+            }
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+@media(max-width:800px){
+
+    .pagina{
+        width:400px;
+        margin:0 auto;
+        background-color: antiquewhite;
+    }
+    .content{
+        display: grid;
+        grid-template-columns: 100%;
+        border-top: 3px;
+        border-bottom: 3px;
+    }
+    #maxTable{
+        display: none;
+    }
+}
+
+@media(min-width:800px){
+
+    .pagina{
+        width: 800px;
+        margin: 0 auto;
+        background-color: antiquewhite;
+    }
+    .content{
+        display: grid;
+        grid-template-columns: 15% 55% 30%;
+        border-top: 3px;
+        border-bottom: 3px;
+    }
+    #minTable{
+        display: none;
+    }
+}
+
+body{
+    background-color: #022b3a;
+    font-family: Arial Narrow;
+}
+
+header h1 {
+    display: flex;
+    align-items: center;
+    font: size 32px;
+    font-family: Franklin Gothic Medium;
+}
+
+.simbolo {
+    font-size: 60px;
+    color:#1F7A8C;
+}
+
+table{
+    width: 100%;
+}
+
+.link{
+    color:#1F7A8C;
+    display:block;
+    text-align: right;
+    margin-right: 1em;
+}
+
+.col{
+    border-left: 1px solid #022B3A ;
+    border-right: 1px solid #022B3A ;
+    border-top: 3px solid #022B3A ;
+    border-bottom: 3px solid #022B3A ;
+}
+
+footer{
+    height: 150px;
+}
+
+.textAside{
+   margin-left: 1em; 
+}
+
+.mainText{
+    margin:1em;
+}

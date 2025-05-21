@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Semplice</title>
+    <link rel="stylesheet" href="stile.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registrati</h1>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="username">Nome Utente:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Genere:</label>
+                <select id="gender" name="gender">
+                    <option value="" disabled selected>Scegli un'opzione</option>
+                    <option value="maschile">Maschile</option>
+                    <option value="femminile">Femminile</option>
+                    <option value="altro">Altro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Hobby:</label>
+                <div>
+                    <input type="checkbox" id="hobby1" name="hobby" value="sport">
+                    <label for="hobby1">Sport</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="hobby2" name="hobby" value="musica">
+                    <label for="hobby2">Musica</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="hobby3" name="hobby" value="lettura">
+                    <label for="hobby3">Lettura</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Messaggio:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit">Invia</button>
+        </form>
+        <div id="responseMessage" class="hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<!-- 
+FORM SEMPLICE CHE CON INVIO BOTTONE CHIAMA UNA PAGINA
+
+<h2>HTML Forms</h2>
+<form action="/action_page.php">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value="John"><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="Doe"><br><br>
+  <input type="submit" value="Submit">
+</form> 
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+-->

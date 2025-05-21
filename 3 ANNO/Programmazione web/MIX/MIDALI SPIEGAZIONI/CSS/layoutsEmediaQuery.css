@@ -1,0 +1,81 @@
+/*DISPLAY BLOCK*/
+.contenitoreBlock{
+    display: block; 
+    /*elementi iniziano una nuova riga e occupano l'intera larghezza,
+    i margini tra due elementi si sommano*/
+}
+
+/*DISPLAY INLINE*/
+.contenitoreInline{
+    display: inline;
+    /*elementi posizionati in modo adiacente se c'è spazio, 
+    margin e padding verticali non vengono rispettati*/
+}
+
+/*DISPLAY FLEX*/
+.contenitoreFlex{
+    display: flex;
+    /*utilizzata per posizionare gli elementi della nostra pagina web 
+    in maniera pratica e veloce all'interno di un container genitore*/
+    
+    flex-direction: column; /*elementi posizionati verticalmente su colonna*/
+    flex-direction: row;    /*elementi posizionati orizzontalmente su riga*/
+    flex-direction:column-reverse;
+    flex-direction:row-reverse;
+
+    flex-wrap: wrap;    /*per mandare a capo*/
+    flex-wrap: nowrap;  /*per non mandare a capo*/
+    flex-wrap: wrap-reverse;
+}
+.elementoFlex{
+    flex:1;     /*dice all'elemento di prendere uno spazio*/
+    order:1;    /*per decidere ordine di ogni elemento*/
+}
+
+/*DISPLAY GRID*/
+.contenitoreGrid{
+    display: grid;
+    
+    column-gap: 10px;   /*per impostare spazio tra le colonne*/
+    row-gap: 10px;      /*per impostare spazio tra le righe*/
+    gap: 10px;          /*per impostare gap tra righe e colonne*/
+    
+    grid-template-columns: auto auto auto; /*imposta tre colonne di dimensione automatica*/
+    grid-template-columns: 1fr 4fr; /*imposta due colonne di cui la prima occupa 1 posizione mentre la seconda occupa 4 posizioni*/
+    grid-template-rows: 200px 90px; /*imposta due righe una di altezza 200px e un'altra di altezza 90px*/
+}
+.elementoGrid{
+    grid-column-start: 1;   /*inizia da colonna1*/
+    grid-column-end: 4;     /*termina in colonna 4 (esclusa)*/
+
+    grid-row-start:1;   /*inizia in riga1*/
+    grid-row-end:2;     /*termina in riga2*/
+}
+
+/*FLOAT PROPERTY*/
+.elementoProprietaFloat{
+    float:left;
+}
+.elementoNonCondizionatoDaProprietaFloat{
+    clear:left;
+}
+
+/*MEDIA QUERY*/
+    /*Di tipo Media Features: specifica per quale dispositivo funzionano le regole in base alla sua dimensione e caratteristiche*/
+        @media (orientation: landscape) {   
+            /*qui inserire regole css per dispositivi con larghezza>altezza*/
+        }
+        @media (orientation: portrait) {
+            /*qui inserire regole css per dispositivi con altezza>larghezza*/
+        }
+        @media (max-width:12450px){
+            /*qui inserire regole css per dispositivi con larghezza massima pari a 12450px*/
+        }
+        @media (min-width:450px){
+            /*qui inserire regole css per dispositivi con larghezza minima pari a 450px*/
+        }
+    /*Di tipo Media Type: specifica se regole valgono per screen|print|speech|all*/
+       @media screen and (max-width:1000px){
+            /*qui inserire regole css valide solo per screen e per dispositivi di larghezza massima pari a 1000px*/
+       }
+    /*Vincoli per combinare media type e media features: "and" , "virgola" , "not"*/

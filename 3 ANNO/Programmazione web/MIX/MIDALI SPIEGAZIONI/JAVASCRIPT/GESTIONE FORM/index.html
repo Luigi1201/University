@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM HTML JS </title>
+</head>
+<body>
+    <form>
+        <div>
+            <label for="inputCampoNome">Nome: </label>          <!-- in for="" deve esserci stesso valore di input id="" -->
+            <br>
+            <input id="inputCampoNome" type="text">
+        </div>
+        <div>
+            <label for="inputCampoCognome">Cognome: </label>    <!-- in for="" deve esserci stesso valore di input id="" -->
+            <br>
+            <input id="inputCampoCognome" type="text">
+        </div>
+        <div>
+            <br>
+            <input id="submit" type="submit">
+        </div>
+    </form>
+    <p></p>
+
+    <script>
+        "use strict";
+
+        const form = document.querySelector('form');
+        const nome = document.getElementById('inputCampoNome');
+        const cognome = document.getElementById('inputCampoCognome');
+        const paragrafo = document.querySelector('p');
+
+        form.onsubmit = function(e){
+            if(nome.value === '' || cognome.value === ''){
+                e.preventDefault();                            //per avere il controllo sul caso di default in cui avviene qualcosa che non sarebbe dovuto accadere
+                paragrafo.textContent = "Devi riempire entrambi i campi !!!";
+            }
+        }
+    </script>
+
+    <div>
+        <br>
+            <button type="button" id="alertOnClick">CLICCAMI PER LANCIARE UN ALERT!</button>
+        <br>
+    </div>
+    
+    <script>
+        "use strict";
+        const ButtonAlert = document.getElementById("alertOnClick");
+        buttonAlert.addEventListener("click",()=>{
+            alert("Alert lanciato!");
+        });
+    </script>
+
+</body>
+</html>
+
+
+<!--
+
+SELEZIONARE UN ELEMENTO:
+document.getElementById("miodiv")
+document.getElementsByTagName("p")
+document.getElementsByClassName("myClass")
+document.querySelectorAll("p.warning")
+
+INSERIRE QUALCOSA IN UN ELEMENTO SELEZIONATO:
+document.getElementById('elemSelezionato').innerHTML='NuovoTestoInserito';">
+
+PER ASSOCIARE UN EVENTO AD UN ELEMENTO (UTILIZZO DI addEventListener):
+window.addEventListener("click",myFunction);
+
+-->
+

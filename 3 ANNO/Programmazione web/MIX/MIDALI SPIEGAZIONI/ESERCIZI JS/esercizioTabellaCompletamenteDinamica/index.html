@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Tabella{
+            nomiColonne;
+            data;
+
+            constructor(nomiColonne,data){
+                this.nomiColonne=nomiColonne;
+                this.data=data;
+                this.generaTabella();
+            }
+
+            generaTabella(){
+                const tabella = document.createElement("table");
+                tabella.appendChild(this.generaColonne());
+                tabella.appendChild(this.generaRighe());
+                document.querySelector("body").appendChild(tabella);
+            }
+
+            generaColonne(){
+                const thead = document.createElement("thead");
+                this.nomiColonne.forEach((nomeColonna)=>{
+                    const th = document.createElement("th")
+                    const testo = document.createTextNode(nomeColonna)
+                    th.appendChild(testo)
+                    thead.appendChild(th)
+                })
+                return thead;
+            }
+
+            generaRighe(){
+                const tbody = document.createElement("tbody")   //conterrà le righe
+                this.data.forEach((dato)=>{
+                    const tr = document.createElement("tr");
+                    Object.keys(dato).forEach((singolaProprieta)=>{
+                        const td = document.createElement("td");
+                        const testo = document.createTextNode(dato[singolaProprieta]);
+                        td.appendChild(testo);
+                        tr.appendChild(td);
+                    })
+                    tbody.appendChild(tr)
+                })
+                return tbody;
+
+            }
+
+        }
+
+        const nomiColonne1 = ["id", "nome", "cognome", "email", "codice fiscale", "indirizzo"]
+        const data1 = [
+            {
+                id:1,
+                nome:"luca",
+                cognome:"rossi",
+                email:"luca@email.it",
+                codiceFiscale:"rhjsbdjjaj23",
+                indirizzo:"via torino"   
+            },
+            {
+                id:2,
+                nome:"marco", 
+                cognome:"verdi",
+                email:"arco@email.it",
+                codiceFiscale:"mdlahd1a0j",
+                indirizzo:"via milano"  
+            }
+        ]
+        const tabella1 = new Tabella(nomiColonne1,data1)
+
+        const nomiColonne2 = ["id", "prodotto", "prezzo"];
+        const data2 = [
+            {
+                id:1, prodotto:"mele", prezzo:3
+            },
+            {
+                id:2, prodotto:"pere", prezzo:5
+            }
+        ]
+        const tabella2 = new Tabella(nomiColonne2,data2)
+
+    </script>
+</body>
+</html>

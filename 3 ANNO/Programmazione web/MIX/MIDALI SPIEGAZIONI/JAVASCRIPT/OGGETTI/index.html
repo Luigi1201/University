@@ -1,0 +1,115 @@
+VEDI VIDEO EDOARDO MIDALI (CERCA IN TODO I MANCANTI)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //INTRODUZIONE-------------------
+        const persona = {
+            nome: 'Luigi',
+            cognome: 'Riggi',
+            genere: "M",
+            eta: 22,
+            interessi: ['calcio', 'procrastinare'],
+            indirizzo: {
+                via: "Via dei laghi 58",
+                cap: '00049',
+                provincia: 'RM',
+                citta: "Velletri"
+            },
+            saluta: function(){
+                console.log(`Ciao sono ${this.nome}`);
+            }
+        }
+        
+        console.log("Dot notation:",persona.interessi[0]);
+        console.log("Dot notation:",persona.indirizzo.cap);
+        persona.saluta(); //Dot notation
+        console.log("Bracket notation:",persona['eta']); 
+        
+        persona.colorePreferito = "Bianco"; //aggiunto campo colorePreferito
+        //FINE INTRODUZIONE------------------------
+
+        function Persona(nome, cognome, eta, genere, interessi){
+            this.nome = nome;
+            this.cognome = cognome;
+            this.eta = eta;
+            this.genere = genere;
+            this.interessi = interessi;
+            this.bio = function(){
+                console.log(`${this.nome} ${this.cognome} è 
+                ${(this.genere=='M')?'un ragazzo':'una ragazza'} di ${this.eta} anni
+                a cui piace ${this.interessi.join(', ')}`);
+            };
+            this.saluta = function(){
+                console.log(`Ciao sono ${this.nome}`);
+            };
+        }
+
+        const persona1 = new Persona('Silvia','Gotti',21,'F',['leggere','gatti','musica']);
+        console.log(persona1);
+        persona1.saluta();
+        persona1.bio();
+
+        //ereditarietà
+        function Insegnante(nome, cognome, eta, genere, interessi, materia){
+            Persona.call(this, nome, cognome, eta, genere, interessi);
+            //Persona.call(this) se non avessi avuto parametri
+            this.materia=materia;
+            this.saluta=function(){
+                console.log(`Buongiorno sono l'insegnante ${this.nome} ${this.cognome}`)
+            };
+            this.bio = function(){
+                console.log(`${this.nome} ${this.cognome} è 
+                ${(this.genere=='M')?'un insegnante':'una insegnante'} di ${this.eta} anni
+                che insegna la materia ${this.materia}
+                a cui piace ${this.interessi.join(', ')} `);
+            };
+        } 
+        const insegnante1 = new Insegnante('Nadia', 'Petrus Pons', 45, 'F', ['insegnare', 'lingue'], 'lingua spagnola 1');
+        console.log(insegnante1);
+        insegnante1.saluta();
+        insegnante1.bio();
+
+
+        //PASSAGGIO A CLASSI AVVENUTO NEL 2015:
+        class PersonaClass{
+            constructor(nome,cognome,eta,genere,interessi){
+                this.nome=nome;
+                this.cognome=cognome;
+                this.eta=eta;
+                this.genere=genere;
+                this.interessi=interessi;
+            }
+            saluta(){
+                console.log(`Ciao sono ${this.nome}`);
+            }
+        }
+        class InsegnanteClass extends PersonaClass{
+            constructor(nome,cognome,eta,genere,interessi,materia){
+                super(nome,cognome,eta,genere,interessi);
+                this.materia=materia;
+            }
+            get materia(){
+                return this._materia;   // _ per getters and setters
+            }
+            set materia(nuovaMateria){
+                this._materia=nuovaMateria; // _ per getters and setters
+            }
+            riprendiAlunno(nomeAlunno){
+                console.log(`${nomeAlunno} non si mangia in classe!`);
+            }
+        }
+        const insegnante2 = new InsegnanteClass("Alessandro", 'Simonetta', 52, 'M', ['bocciare','non essere chiaro'], 'Architettura degli elaboratori');
+        console.log(insegnante2.nome,insegnante2.cognome);
+        insegnante2.riprendiAlunno("Riggi");
+    </script>
+
+</body>
+</html>

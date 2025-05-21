@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        In Node.js, hai accesso completo al file system:
+        Puoi creare, leggere, scrivere e cancellare file o directory 
+        usando il modulo integrato chiamato fs (File System).
+        
+        fs è il modulo di Node.js che ti permette di interagire con il file system. 
+        Con fs, puoi:
+            Leggere file dal disco (fs.readFile).
+            Scrivere file sul disco (fs.writeFile).
+            Creare o cancellare directory (fs.mkdir, fs.rmdir).
+            Ottenere informazioni su file o directory (fs.stat).
+
+        Per utilizzare fs in Node.js, lo devi importare utilizzando il metodo require.
+        */
+        const fs = require('fs');
+
+        //LEGGERE UN FILE IN MODO ASINCRONO
+        fs.readFile('file.txt', 'utf8', (err, data) => {  
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log(data);
+        });
+
+
+        //SCRIVERE UN FILE 
+        const data = 'Contenuto da scrivere nel file';
+        fs.writeFile('file.txt', data, (err) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log('File scritto con successo');
+        });
+
+
+        //APPENDERE UN FILE
+        fs.appendFile('file.txt', '\nNuova riga da aggiungere', (err) => {
+            if (err) {
+              console.error(err);
+              return;
+            }
+            console.log('Riga aggiunta con successo');
+          });
+          
+
+        //CREARE UNA DIRECTORY
+        fs.mkdir('nuovaCartella', { recursive: true }, (err) => {
+            if (err) {
+              console.error(err);
+              return;
+            }
+            console.log('Cartella creata con successo');
+          });
+          
+        
+        //CANCELLARE UN FILE
+        fs.unlink('file.txt', (err) => {
+            if (err) {
+              console.error(err);
+              return;
+            }
+            console.log('File cancellato');
+          });
+          
+
+        //CANCELLARE UNA DIRECTORY
+        fs.rmdir('nuovaCartella', (err) => {
+            if (err) {
+              console.error(err);
+              return;
+            }
+            console.log('Cartella cancellata');
+          });
+          
+
+    </script>
+</body>
+</html>

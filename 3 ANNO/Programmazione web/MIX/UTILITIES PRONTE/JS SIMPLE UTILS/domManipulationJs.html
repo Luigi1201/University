@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*  SELEZIONARE ELEMENTI
+        Per manipolare gli elementi della pagina, prima devi SELEZIONARLI. JavaScript ti fornisce diversi metodi per farlo:
+            getElementById()            seleziona un elemento per il suo id.
+            getElementsByClassName()    seleziona elementi con una specifica classe.
+            getElementsByTagName()      seleziona elementi con un tag specifico.
+            querySelector()             seleziona il primo elemento che corrisponde a un selettore CSS.
+            querySelectorAll()          seleziona tutti gli elementi che corrispondono a un selettore CSS
+        esempi:*/
+        const titolo = document.getElementById("titolo"); // Seleziona l'elemento con id "titolo"
+        
+        const paragrafi = document.getElementsByTagName("p"); // Seleziona tutti i paragrafi
+        
+        const primoParagrafo = document.querySelector(".paragrafo"); // Seleziona il primo elemento con la classe "paragrafo"
+        
+
+        /*  MODIFICARE IL CONTENUTO DEGLI ELEMENTI
+        Una volta selezionato un elemento, puoi modificarne il contenuto usando le proprietà:
+            innerHTML: modifica il contenuto HTML di un elemento.
+            textContent: modifica il testo semplice di un elemento (senza interpretare tag HTML).
+            innerText: simile a textContent, ma rispetta lo stile CSS (come display: none).
+        esempi:*/
+        titolo.innerHTML = "Nuovo Titolo"; // Cambia il testo dell'elemento con id "titolo"
+        
+        primoParagrafo.textContent = "Testo aggiornato."; // Cambia il testo di un paragrafo
+
+
+        /*  MODIFICARE ATTRIBUTI E STILI
+            Puoi modificare anche gli attributi e gli stili degli elementi:
+                setAttribute(): aggiunge o modifica un attributo.
+                getAttribute(): ottiene il valore di un attributo.
+                removeAttribute(): rimuove un attributo.
+                style: accede o modifica lo stile CSS in linea di un elemento.
+        esempi:*/
+        titolo.setAttribute("id", "nuovoId"); // Modifica l'attributo "id"
+        
+        primoParagrafo.style.color = "blue";    // Cambia lo stile del paragrafo
+        
+        primoParagrafo.style.fontSize = "20px"; // Cambia lo stile del paragrafo
+
+
+        /*  AGGIUNGERE O RIMUOVERE ELEMENTI NEL DOM
+        Puoi anche aggiungere nuovi elementi alla pagina o rimuovere quelli esistenti.
+            createElement(): crea un nuovo elemento HTML.
+            appendChild(): aggiunge un elemento come ultimo figlio di un altro.
+            removeChild(): rimuove un elemento figlio.
+            insertBefore(): inserisce un elemento prima di un altro.
+            replaceChild(): sostituisce un elemento figlio.
+        esempi:*/
+        const nuovoParagrafo = document.createElement("p");            // Crea un nuovo paragrafo
+        nuovoParagrafo.textContent = "Questo è un nuovo paragrafo";
+        
+        document.body.appendChild(nuovoParagrafo);// Aggiungi il nuovo paragrafo al body
+
+        document.body.removeChild(primoParagrafo); // Rimuovi un elemento
+    
+
+
+
+        //CREAZIONE ELEMENTI:
+            /*1) innerHTML
+            innerHTML è una proprietà che permette di leggere o impostare il contenuto HTML di un elemento. 
+            Usando innerHTML, puoi aggiungere, modificare o rimuovere il markup HTML all'interno di un elemento del DOM.*/
+
+            // Leggere il contenuto HTML di un elemento
+            let contenuto = document.getElementById('boxRosso').innerHTML;
+
+            // Impostare il contenuto HTML di un elemento
+            document.getElementById('boxRosso').innerHTML = '<p>Nuovo contenuto</p>';
+
+
+            /*2) textContent
+            Cos'è: textContent è una proprietà simile a innerHTML, ma lavora solo con il testo, 
+            non con l'HTML. Utilizzando textContent, puoi leggere o impostare solo il testo di un elemento.
+            */
+            // Leggere il contenuto di testo
+            let testo = document.getElementById('boxRosso').textContent;
+
+            // Impostare il contenuto di testo
+            document.getElementById('boxRosso').textContent = 'Nuovo testo semplice';
+
+
+            /*3) createElement
+            createElement crea un nuovo elemento HTML (tag) nel DOM. Dopo aver creato l'elemento, 
+            puoi aggiungerlo alla pagina usando metodi come appendChild.
+            */
+            // Creare un nuovo elemento
+            let nuovoElemento = document.createElement('div');
+            nuovoElemento.textContent = 'Questo è un nuovo div';
+
+            // Aggiungerlo al DOM
+            document.getElementById('boxRosso').appendChild(nuovoElemento);
+
+
+            /*4) setAttribute e getAttribute
+            Questi metodi ti permettono di impostare o leggere gli attributi di un elemento HTML.
+            */
+            // Impostare un attributo
+            document.getElementById('boxRosso').setAttribute('class', 'nuovaClasse');
+
+            // Leggere un attributo
+            let valoreClasse = document.getElementById('boxRosso').getAttribute('class');
+            
+
+            /*5) addEventListener
+                addEventListener è utilizzato per ascoltare eventi su un elemento del DOM, come click, 
+                mouseover, o la pressione di un tasto.
+            */
+            // Aggiungere un evento di click
+            document.getElementById('boxIdFrasi').addEventListener('click', function(event) {
+                alert('Elemento cliccato');
+            })
+            
+
+            /*6) querySelector e querySelectorAll
+            querySelector restituisce il primo elemento che corrisponde al selettore CSS specificato. 
+            querySelectorAll restituisce tutti gli elementi che corrispondono.  
+            */
+            // Selezionare il primo elemento con classe "contenitore"
+            let contenitore = document.querySelector('.contenitore');
+
+            // Selezionare tutti gli elementi con classe "contenitore"
+            let contenitori = document.querySelectorAll('.contenitore');
+            
+    </script>
+</body>
+</html>

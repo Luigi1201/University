@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TODO LIST</h1>
+    <input id="new-task" type="text" placeholder="aggiungi la nuova task">
+    <button id="new-task-btn">Aggiungi task</button>
+    <button id="clear-btn">Pulisci</button>
+    <div id="todo"></div>
+    <script>
+
+        class TODOList{
+            constructor(){
+                this.tasks = this.caricaTask()
+                console.log("TODO list's tasks:",this.tasks)
+            }
+
+            aggiungiTask(task){
+                this.tasks.push(task)
+                this.generaNuovoTask(task)
+                console.log("tasks:",this.tasks)
+                localStorage.setItem("tasks",JSON.stringify(this.tasks))
+            }
+
+            concludiTask(task){
+                const index = this.tasks.indexOf(task)
+                this.tasks.splice(index,1) //rimuove 1 elementi a partire dall'elemento in posizione index
+                console.log(this.tasks)
+                localStorage.setItem("tasks",JSON.stringify(this.tasks))
+            }
+
+            caricaTask(){
+                return JSON.parse(localStorage.getItem("tasks")) ?? []
+            }
+
+            generaNuovoTask(task){
+                const todo = document.getElementById("todo")
+                const p = document.createElement("p")
+                const testo = document.createTextNode(task)
+                todo.appendChild(p)
+                p.appendChild(testo)
+                p.addEventListener("click",(e)=>{
+                    this.concludiTask(task)
+                    e.srcElement.remove()
+                })
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded",()=>{
+            const newTaskBtn = document.getElementById("new-task-btn")
+            const clearBtn = document.getElementById("clear-btn")
+            const input = document.getElementById("new-task")
+
+            const todoList = new TODOList()
+
+            newTaskBtn.addEventListener("click",()=>{   //agiunta tramite bottone
+                console.log("nuova task aggiunta con btn:",input.value)
+                todoList.aggiungiTask(input.value);
+            })
+            input.addEventListener("keypress",(e)=>{    //aggiunta tramite invio campo input
+                if(e.key==="Enter"){
+                    console.log("nuova task aggiunta con invio input:",input.value)
+                    todoList.aggiungiTask(input.value);
+                    input.value=""
+                }
+            })
+            clearBtn.addEventListener("click",()=>{
+                console.log("pulisci task")
+                //da implementare per esercizio
+            })
+        })
+    </script>
+</body>
+</html>
